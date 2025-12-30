@@ -1,0 +1,78 @@
+notify-update: true
+levels:
+  particle:
+    enable: true
+    type: ENCHANT
+    offsetX: 0.6
+    offsetY: 0.7
+    offsetZ: 0.6
+    count: 25
+  sound:
+    enable: true
+    type: ENTITY_EXPERIENCE_ORB_PICKUP
+    volume: 0.75
+    pitch: 1.0
+fishing:
+  #for states, BITE
+  #FISHING, CAUGHT_FISH, CAUGHT_ENTITY
+  #IN_GROUND, FAILED_ATTEMPT, REEL_IN
+  FISHING:
+    caught:
+      name: ""
+    particle:
+      enable: true
+      type: SOUL
+      offsetX: 0.6
+      offsetY: 0.7
+      offsetZ: 0.6
+      count: 25
+    sound:
+      enable: true
+      type: BLOCK_AMETHYST_BLOCK_CHIME
+      volume: 0.75
+      pitch: 1.0
+  BITE:
+    caught:
+      name: ""
+    particle:
+      enable: true
+      type: SOUL
+      offsetX: 0.6
+      offsetY: 0.7
+      offsetZ: 0.6
+      count: 25
+    sound:
+      enable: true
+      type: BLOCK_AMETHYST_BLOCK_HIT
+      volume: 0.75
+      pitch: 1.0
+  CAUGHT_FISH:
+    caught:
+      name: ""
+    particle:
+      enable: true
+      type: SOUL
+      offsetX: 0.6
+      offsetY: 0.7
+      offsetZ: 0.6
+      count: 25
+    sound:
+      enable: true
+      type: BLOCK_AMETHYST_BLOCK_RESONATE
+      volume: 0.75
+      pitch: 1.0
+  FAILED_ATTEMPT:
+    caught:
+      name: ""
+    particle:
+      enable: true
+      type: SOUL
+      offsetX: 0.6
+      offsetY: 0.7
+      offsetZ: 0.6
+      count: 25
+    sound:
+      enable: true
+      type: BLOCK_AMETHYST_BLOCK_BREAK
+      volume: 0.75
+      pitch: 1.0

@@ -1,0 +1,5 @@
+COAL_ORE:
+  enable: true
+  exp: 0.25
+  money: 0.25
+  chance: 0.2

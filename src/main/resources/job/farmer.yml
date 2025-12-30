@@ -1,0 +1,10 @@
+CARROTS:
+  enable: true
+  exp: 0.25
+  money: 0.25
+  chance: 1.0
+WHEAT:
+  enable: true
+  exp: 0.25
+  money: 0.25
+  chance: 1.0

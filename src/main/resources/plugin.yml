@@ -1,0 +1,69 @@
+name: Jobs
+version: '${project.version}'
+main: org.achymake.jobs.Jobs
+api-version: '1.21'
+prefix: Jobs
+load: POSTWORLD
+depend:
+  - Vault
+  - PlaceholderAPI
+softdepend:
+  - Replant
+author: AchyMake
+description: '${project.description}'
+website: '${project.url}'
+commands:
+  jobs:
+    description: main command
+    permission: jobs.command.jobs
+    permission-message: You do not have the permissions to execute the command
+  job:
+    description: job command
+    permission: jobs.command.job
+    permission-message: You do not have the permissions to execute the command
+permissions:
+  jobs.command.jobs:
+    description: jobs command
+    default: op
+  jobs.command.job:
+    description: job command
+    default: op
+  jobs.job:
+    description: gets all jobs
+    default: op
+    children:
+      - jobs.job.breeder
+      - jobs.job.enchanter
+      - jobs.job.farmer
+      - jobs.job.fisher
+      - jobs.job.hunter
+      - jobs.job.lumberjack
+      - jobs.job.miner
+      - jobs.job.shepherd
+  jobs.job.breeder:
+    description: job breeder
+    default: op
+  jobs.job.enchanter:
+    description: job enchanter
+    default: op
+  jobs.job.farmer:
+    description: job farmer
+    default: op
+  jobs.job.fisher:
+    description: job fisher
+    default: op
+  jobs.job.hunter:
+    description: job hunter
+    default: op
+  jobs.job.lumberjack:
+    description: job lumberjack
+    default: op
+  jobs.job.miner:
+    description: job miner
+    default: op
+  jobs.job.shepherd:
+    description: job shepherd
+    default: op
+  jobs.event.join.update:
+    description: gets update
+    default: op
