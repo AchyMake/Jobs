@@ -19,13 +19,6 @@ fishing:
   FISHING:
     caught:
       name: ""
-    particle:
-      enable: true
-      type: SOUL
-      offsetX: 0.6
-      offsetY: 0.7
-      offsetZ: 0.6
-      count: 25
     sound:
       enable: true
       type: BLOCK_AMETHYST_BLOCK_CHIME
@@ -34,13 +27,6 @@ fishing:
   BITE:
     caught:
       name: ""
-    particle:
-      enable: true
-      type: SOUL
-      offsetX: 0.6
-      offsetY: 0.7
-      offsetZ: 0.6
-      count: 25
     sound:
       enable: true
       type: BLOCK_AMETHYST_BLOCK_HIT
@@ -49,13 +35,6 @@ fishing:
   CAUGHT_FISH:
     caught:
       name: ""
-    particle:
-      enable: true
-      type: SOUL
-      offsetX: 0.6
-      offsetY: 0.7
-      offsetZ: 0.6
-      count: 25
     sound:
       enable: true
       type: BLOCK_AMETHYST_BLOCK_RESONATE
@@ -64,13 +43,6 @@ fishing:
   FAILED_ATTEMPT:
     caught:
       name: ""
-    particle:
-      enable: true
-      type: SOUL
-      offsetX: 0.6
-      offsetY: 0.7
-      offsetZ: 0.6
-      count: 25
     sound:
       enable: true
       type: BLOCK_AMETHYST_BLOCK_BREAK

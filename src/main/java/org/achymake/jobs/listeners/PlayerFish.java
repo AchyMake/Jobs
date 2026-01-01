@@ -60,16 +60,6 @@ public class PlayerFish implements Listener {
                 var soundPitch = stateSection.getDouble("sound.pitch");
                 getWorldHandler().playSound(event.getPlayer(), soundType, soundVolume, soundPitch);
             }
-            if (getConfig().getBoolean("particle.enable")) {
-                var particleType = getConfig().getString("particle.type");
-                if (particleType != null) {
-                    var count =  getConfig().getInt("particle.count");
-                    var offsetX = getConfig().getDouble("particle.offsetX");
-                    var offsetY = getConfig().getDouble("particle.offsetY");
-                    var offsetZ = getConfig().getDouble("particle.offsetZ");
-                    getWorldHandler().spawnParticle(event.getPlayer().getLocation(), particleType, count, offsetX, offsetY, offsetZ);
-                }
-            }
             if (caught != null) {
                 var name = stateSection.getString("caught.name");
                 if (name != null && !name.isBlank()) {
