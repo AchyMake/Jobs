@@ -57,7 +57,7 @@ public class JobLvlChange implements Listener {
             var pitch = getConfig().getDouble("levels.sound.pitch");
             getWorldHandler().playSound(player, soundType, volume, pitch);
         }
-        if (getUserdata().removeExp(player, job, lvlResult) >= lvlResult) {
+        if (getUserdata().removeExp(player, job, event.getOldLevel()) >= event.getNewLevel()) {
             getPluginManager().callEvent(new JobLvlChangeEvent(player, job, lvlResult + 1, lvlResult));
         }
     }

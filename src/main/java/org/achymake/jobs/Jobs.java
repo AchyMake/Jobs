@@ -164,6 +164,9 @@ public final class Jobs extends JavaPlugin {
     public static Jobs getInstance() {
         return instance;
     }
+    public NamespacedKey getKey(String key) {
+        return new NamespacedKey(this, key);
+    }
     public void sendInfo(String message) {
         getLogger().info(message);
     }
@@ -194,8 +197,5 @@ public final class Jobs extends JavaPlugin {
     }
     public OfflinePlayer getOfflinePlayer(UUID uuid) {
         return getServer().getOfflinePlayer(uuid);
-    }
-    public NamespacedKey getKey(String key) {
-        return new NamespacedKey(this, key);
     }
 }

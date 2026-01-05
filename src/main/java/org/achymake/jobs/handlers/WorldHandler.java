@@ -13,6 +13,6 @@ public class WorldHandler {
     }
     public void playSound(Entity entity, String soundType, double volume, double pitch) {
         var world = entity.getWorld();
-        world.playSound(entity, Sound.valueOf(soundType), (float) volume, (float) pitch);
+        world.playSound(entity.getLocation(), Sound.valueOf(soundType), (float) volume, (float) pitch);
     }
 }
