@@ -50,7 +50,7 @@ public class PlayerReplant implements Listener {
         var job = Jobs.jobs.farmer;
         var money = getRandomHandler().nextDouble(getFarmer().getMoneyMin(material), getFarmer().getMoneyMax(material));
         getEconomy().depositPlayer(player, money);
-        getMessage().sendActionBar(player, getMessage().get("event.money.message", getEconomy().currencyNameSingular() + getEconomy().format(money)));
+        getMessage().sendActionBar(player, getMessage().get("event.money.message", getEconomy().currencyNameSingular() + getMessage().format(money)));
         var exp = getRandomHandler().nextDouble(getFarmer().getExpMin(material), getFarmer().getExpMax(material));
         var result = getUserdata().addExp(player, job, exp);
         var lvl = getUserdata().getLvl(player, job);

@@ -52,7 +52,7 @@ public class EntityDeath implements Listener {
         var job = Jobs.jobs.hunter;
         var money = getRandomHandler().nextDouble(getHunter().getMoneyMin(entityType), getHunter().getMoneyMax(entityType));
         getEconomy().depositPlayer(player, money);
-        getMessage().sendActionBar(player, getMessage().get("event.money.message", getEconomy().currencyNameSingular() + getEconomy().format(money)));
+        getMessage().sendActionBar(player, getMessage().get("event.money.message", getEconomy().currencyNameSingular() + getMessage().format(money)));
         var exp = getRandomHandler().nextDouble(getHunter().getExpMin(entityType), getHunter().getExpMax(entityType));
         var result = getUserdata().addExp(player, job, exp);
         var lvl = getUserdata().getLvl(player, job);

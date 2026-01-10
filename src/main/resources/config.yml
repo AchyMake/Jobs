@@ -12,6 +12,7 @@ levels:
     type: ENTITY_EXPERIENCE_ORB_PICKUP
     volume: 0.75
     pitch: 1.0
+format: '#,##0.00'
 fishing:
   #for states, BITE
   #FISHING, CAUGHT_FISH, CAUGHT_ENTITY

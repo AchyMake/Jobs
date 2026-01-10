@@ -50,7 +50,7 @@ public class PlayerShearEntity implements Listener {
         var job = Jobs.jobs.shepherd;
         var money = getRandomHandler().nextDouble(getShepherd().getMoneyMin(entityType), getShepherd().getMoneyMax(entityType));
         getEconomy().depositPlayer(player, money);
-        getMessage().sendActionBar(player, getMessage().get("event.money.message", getEconomy().currencyNameSingular() + getEconomy().format(money)));
+        getMessage().sendActionBar(player, getMessage().get("event.money.message", getEconomy().currencyNameSingular() + getMessage().format(money)));
         var exp = getRandomHandler().nextDouble(getShepherd().getExpMin(entityType), getShepherd().getExpMax(entityType));
         var result = getUserdata().addExp(player, job, exp);
         var lvl = getUserdata().getLvl(player, job);

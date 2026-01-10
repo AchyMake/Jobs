@@ -50,7 +50,7 @@ public class EnchantItem implements Listener {
         var job = Jobs.jobs.enchanter;
         var money = getRandomHandler().nextDouble(getEnchanter().getMoneyMin(material), getEnchanter().getMoneyMax(material));
         getEconomy().depositPlayer(player, money);
-        getMessage().sendActionBar(player, getMessage().get("event.money.message", getEconomy().currencyNameSingular() + getEconomy().format(money)));
+        getMessage().sendActionBar(player, getMessage().get("event.money.message", getEconomy().currencyNameSingular() + getMessage().format(money)));
         var exp = getRandomHandler().nextDouble(getEnchanter().getExpMin(material), getEnchanter().getExpMax(material));
         var result = getUserdata().addExp(player, job, exp);
         var lvl = getUserdata().getLvl(player, job);

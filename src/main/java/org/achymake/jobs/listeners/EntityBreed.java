@@ -51,7 +51,7 @@ public class EntityBreed implements Listener {
         var job = Jobs.jobs.breeder;
         var money = getRandomHandler().nextDouble(getBreeder().getMoneyMin(entityType), getBreeder().getMoneyMax(entityType));
         getEconomy().depositPlayer(player, money);
-        getMessage().sendActionBar(player, getMessage().get("event.money.message", getEconomy().currencyNameSingular() + getEconomy().format(money)));
+        getMessage().sendActionBar(player, getMessage().get("event.money.message", getEconomy().currencyNameSingular() + getMessage().format(money)));
         var exp = getRandomHandler().nextDouble(getBreeder().getExpMin(entityType), getBreeder().getExpMax(entityType));
         var result = getUserdata().addExp(player, job, exp);
         var lvl = getUserdata().getLvl(player, job);

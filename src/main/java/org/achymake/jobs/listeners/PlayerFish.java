@@ -78,7 +78,7 @@ public class PlayerFish implements Listener {
             var job = Jobs.jobs.fisher;
             var money = getRandomHandler().nextDouble(getFisher().getMoneyMin(material), getFisher().getMoneyMax(material));
             getEconomy().depositPlayer(player, money);
-            getMessage().sendActionBar(player, getMessage().get("event.money.message", getEconomy().currencyNameSingular() + getEconomy().format(money)));
+            getMessage().sendActionBar(player, getMessage().get("event.money.message", getEconomy().currencyNameSingular() + getMessage().format(money)));
             var exp = getRandomHandler().nextDouble(getFisher().getExpMin(material), getFisher().getExpMax(material));
             var result = getUserdata().addExp(player, job, exp);
             var lvl = getUserdata().getLvl(player, job);

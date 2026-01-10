@@ -87,4 +87,7 @@ public class Message {
     public StringBuilder getBuilder() {
         return new StringBuilder();
     }
+    public String format(double amount) {
+        return new DecimalFormat(getInstance().getConfig().getString("format")).format(amount);
+    }
 }

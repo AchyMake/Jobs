@@ -10,7 +10,6 @@ import org.bukkit.entity.Player;
 import java.io.File;
 import java.io.IOException;
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class Userdata {
     private Jobs getInstance() {
@@ -84,22 +83,14 @@ public class Userdata {
             }
         } else setup(offlinePlayer);
     }
-    public Set<Map.Entry<OfflinePlayer, Integer>> getTopJobs() {
+    public ArrayList<Map.Entry<OfflinePlayer, Integer>> getTopJobs() {
         var accounts = new HashMap<OfflinePlayer, Integer>();
         for (var offlinePlayer : getOfflinePlayers()) {
             accounts.put(offlinePlayer, getTotal(offlinePlayer));
         }
-        var list = new ArrayList<>(accounts.entrySet());
-        list.sort(Collections.reverseOrder(Map.Entry.comparingByValue()));
-        var result = new LinkedHashMap<OfflinePlayer, Integer>();
-        result.entrySet().stream()
-                .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
-                .limit(10)
-                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
-        for (var entry : list) {
-            result.put(entry.getKey(), entry.getValue());
-        }
-        return result.entrySet();
+        var listed = new ArrayList<>(accounts.entrySet());
+        listed.sort(Collections.reverseOrder(Map.Entry.comparingByValue()));
+        return listed;
     }
     public int getTotal(OfflinePlayer offlinePlayer) {
         return getLvl(offlinePlayer, Jobs.jobs.breeder) + getLvl(offlinePlayer, Jobs.jobs.enchanter) +
