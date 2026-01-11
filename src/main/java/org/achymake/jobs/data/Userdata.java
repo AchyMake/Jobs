@@ -83,14 +83,14 @@ public class Userdata {
             }
         } else setup(offlinePlayer);
     }
-    public ArrayList<Map.Entry<OfflinePlayer, Integer>> getTopJobs() {
+    public List<Map.Entry<OfflinePlayer, Integer>> getTopJobs() {
         var accounts = new HashMap<OfflinePlayer, Integer>();
         for (var offlinePlayer : getOfflinePlayers()) {
             accounts.put(offlinePlayer, getTotal(offlinePlayer));
         }
         var listed = new ArrayList<>(accounts.entrySet());
         listed.sort(Collections.reverseOrder(Map.Entry.comparingByValue()));
-        return listed;
+        return listed.stream().limit(10).toList();
     }
     public int getTotal(OfflinePlayer offlinePlayer) {
         return getLvl(offlinePlayer, Jobs.jobs.breeder) + getLvl(offlinePlayer, Jobs.jobs.enchanter) +
