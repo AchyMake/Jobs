@@ -5,6 +5,7 @@ import org.achymake.jobs.Jobs;
 import org.achymake.jobs.data.Message;
 import org.achymake.jobs.data.Userdata;
 import org.achymake.jobs.events.JobLvlChangeEvent;
+import org.achymake.jobs.handlers.GameModeHandler;
 import org.achymake.jobs.handlers.RandomHandler;
 import org.achymake.jobs.job.Hunter;
 import org.bukkit.entity.Player;
@@ -23,6 +24,9 @@ public class EntityDeath implements Listener {
     }
     private Userdata getUserdata() {
         return getInstance().getUserdata();
+    }
+    public GameModeHandler getGameModeHandler() {
+        return getInstance().getGameModeHandler();
     }
     private RandomHandler getRandomHandler() {
         return getInstance().getRandomHandler();
@@ -45,6 +49,7 @@ public class EntityDeath implements Listener {
         if (entity instanceof Player)return;
         var player = entity.getKiller();
         if (player == null)return;
+        if (!player.getGameMode().equals(getGameModeHandler().get("survival")))return;
         var entityType = entity.getType();
         if (!getHunter().isEnabled(entityType))return;
         if (!player.hasPermission("jobs.job.hunter"))return;

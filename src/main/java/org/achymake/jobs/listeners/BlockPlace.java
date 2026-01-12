@@ -2,6 +2,7 @@ package org.achymake.jobs.listeners;
 
 import org.achymake.jobs.Jobs;
 import org.achymake.jobs.handlers.BlockHandler;
+import org.achymake.jobs.handlers.GameModeHandler;
 import org.achymake.jobs.job.Lumberjack;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -16,6 +17,9 @@ public class BlockPlace implements Listener {
     private BlockHandler getBlockHandler() {
         return getInstance().getBlockHandler();
     }
+    public GameModeHandler getGameModeHandler() {
+        return getInstance().getGameModeHandler();
+    }
     private Lumberjack getLumberjack() {
         return getInstance().getLumberjack();
     }
@@ -28,6 +32,7 @@ public class BlockPlace implements Listener {
     @EventHandler(priority = EventPriority.MONITOR)
     public void onBlockPlace(BlockPlaceEvent event) {
         if (event.isCancelled())return;
+        if (!event.getPlayer().getGameMode().equals(getGameModeHandler().get("survival")))return;
         if (getLumberjack().isEnabled(event.getBlock().getType())) {
             getBlockHandler().setPlaced(event.getBlockPlaced());
         } else if (getInstance().getFarmer().isEnabled(event.getItemInHand().getType())) {

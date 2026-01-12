@@ -5,6 +5,7 @@ import org.achymake.jobs.Jobs;
 import org.achymake.jobs.data.Message;
 import org.achymake.jobs.data.Userdata;
 import org.achymake.jobs.events.JobLvlChangeEvent;
+import org.achymake.jobs.handlers.GameModeHandler;
 import org.achymake.jobs.handlers.RandomHandler;
 import org.achymake.jobs.job.Enchanter;
 import org.bukkit.event.EventHandler;
@@ -22,6 +23,9 @@ public class EnchantItem implements Listener {
     }
     private Userdata getUserdata() {
         return getInstance().getUserdata();
+    }
+    public GameModeHandler getGameModeHandler() {
+        return getInstance().getGameModeHandler();
     }
     private RandomHandler getRandomHandler() {
         return getInstance().getRandomHandler();
@@ -42,6 +46,7 @@ public class EnchantItem implements Listener {
     public void onEnchantItem(EnchantItemEvent event) {
         if (event.isCancelled())return;
         var player = event.getEnchanter();
+        if (!player.getGameMode().equals(getGameModeHandler().get("survival")))return;
         var itemStack = event.getItem();
         var material = itemStack.getType();
         if (!getEnchanter().isEnabled(material))return;

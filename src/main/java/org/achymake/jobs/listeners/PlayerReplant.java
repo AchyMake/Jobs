@@ -5,6 +5,7 @@ import org.achymake.jobs.Jobs;
 import org.achymake.jobs.data.Message;
 import org.achymake.jobs.data.Userdata;
 import org.achymake.jobs.events.JobLvlChangeEvent;
+import org.achymake.jobs.handlers.GameModeHandler;
 import org.achymake.jobs.handlers.RandomHandler;
 import org.achymake.jobs.job.Farmer;
 import org.achymake.replant.events.PlayerReplantEvent;
@@ -22,6 +23,9 @@ public class PlayerReplant implements Listener {
     }
     private Userdata getUserdata() {
         return getInstance().getUserdata();
+    }
+    public GameModeHandler getGameModeHandler() {
+        return getInstance().getGameModeHandler();
     }
     private RandomHandler getRandomHandler() {
         return getInstance().getRandomHandler();
@@ -42,6 +46,7 @@ public class PlayerReplant implements Listener {
     public void onPlayerReplant(PlayerReplantEvent event) {
         if (event.isCancelled())return;
         var player = event.getPlayer();
+        if (!player.getGameMode().equals(getGameModeHandler().get("survival")))return;
         var block = event.getClickedBlock();
         var material = block.getType();
         if (!getFarmer().isEnabled(material))return;

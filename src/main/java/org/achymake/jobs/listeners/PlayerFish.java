@@ -5,6 +5,7 @@ import org.achymake.jobs.Jobs;
 import org.achymake.jobs.data.Message;
 import org.achymake.jobs.data.Userdata;
 import org.achymake.jobs.events.JobLvlChangeEvent;
+import org.achymake.jobs.handlers.GameModeHandler;
 import org.achymake.jobs.handlers.RandomHandler;
 import org.achymake.jobs.handlers.WorldHandler;
 import org.achymake.jobs.job.Fisher;
@@ -28,6 +29,9 @@ public class PlayerFish implements Listener {
     }
     private Userdata getUserdata() {
         return getInstance().getUserdata();
+    }
+    public GameModeHandler getGameModeHandler() {
+        return getInstance().getGameModeHandler();
     }
     private RandomHandler getRandomHandler() {
         return getInstance().getRandomHandler();
@@ -70,6 +74,7 @@ public class PlayerFish implements Listener {
         }
         if (caught instanceof Item item) {
             var player = event.getPlayer();
+            if (!player.getGameMode().equals(getGameModeHandler().get("survival")))return;
             var itemStack = item.getItemStack();
             var material = itemStack.getType();
             if (!getFisher().isEnabled(material))return;

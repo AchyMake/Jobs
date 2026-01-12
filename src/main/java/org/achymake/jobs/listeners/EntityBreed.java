@@ -5,6 +5,7 @@ import org.achymake.jobs.Jobs;
 import org.achymake.jobs.data.Message;
 import org.achymake.jobs.data.Userdata;
 import org.achymake.jobs.events.JobLvlChangeEvent;
+import org.achymake.jobs.handlers.GameModeHandler;
 import org.achymake.jobs.handlers.RandomHandler;
 import org.achymake.jobs.job.Breeder;
 import org.bukkit.entity.Player;
@@ -23,6 +24,9 @@ public class EntityBreed implements Listener {
     }
     private Userdata getUserdata() {
         return getInstance().getUserdata();
+    }
+    public GameModeHandler getGameModeHandler() {
+        return getInstance().getGameModeHandler();
     }
     private RandomHandler getRandomHandler() {
         return getInstance().getRandomHandler();
@@ -44,6 +48,7 @@ public class EntityBreed implements Listener {
         if (event.isCancelled())return;
         var player = (Player) event.getBreeder();
         if (player == null)return;
+        if (!player.getGameMode().equals(getGameModeHandler().get("survival")))return;
         var entityType = event.getEntityType();
         if (!getBreeder().isEnabled(entityType))return;
         if (!player.hasPermission("jobs.job.breeder"))return;

@@ -21,6 +21,7 @@ public final class Jobs extends JavaPlugin {
     private Message message;
     private Userdata userdata;
     private BlockHandler blockHandler;
+    private GameModeHandler gameModeHandler;
     private RandomHandler randomHandler;
     private ScheduleHandler scheduleHandler;
     private WorldHandler worldHandler;
@@ -42,6 +43,7 @@ public final class Jobs extends JavaPlugin {
         message = new Message();
         userdata = new Userdata();
         blockHandler = new BlockHandler();
+        gameModeHandler = new GameModeHandler();
         randomHandler = new RandomHandler();
         scheduleHandler = new ScheduleHandler();
         worldHandler = new WorldHandler();
@@ -151,6 +153,9 @@ public final class Jobs extends JavaPlugin {
     }
     public RandomHandler getRandomHandler() {
         return randomHandler;
+    }
+    public GameModeHandler getGameModeHandler() {
+        return gameModeHandler;
     }
     public BlockHandler getBlockHandler() {
         return blockHandler;

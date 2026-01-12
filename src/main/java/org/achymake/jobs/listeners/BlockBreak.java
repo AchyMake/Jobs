@@ -6,6 +6,7 @@ import org.achymake.jobs.data.Message;
 import org.achymake.jobs.data.Userdata;
 import org.achymake.jobs.events.JobLvlChangeEvent;
 import org.achymake.jobs.handlers.BlockHandler;
+import org.achymake.jobs.handlers.GameModeHandler;
 import org.achymake.jobs.handlers.RandomHandler;
 import org.achymake.jobs.job.Farmer;
 import org.achymake.jobs.job.Lumberjack;
@@ -29,6 +30,9 @@ public class BlockBreak implements Listener {
     }
     private BlockHandler getBlockHandler() {
         return getInstance().getBlockHandler();
+    }
+    public GameModeHandler getGameModeHandler() {
+        return getInstance().getGameModeHandler();
     }
     private RandomHandler getRandomHandler() {
         return getInstance().getRandomHandler();
@@ -57,6 +61,7 @@ public class BlockBreak implements Listener {
         var player = event.getPlayer();
         var block = event.getBlock();
         var material = block.getType();
+        if (!player.getGameMode().equals(getGameModeHandler().get("survival")))return;
         if (getBlockHandler().isPlaced(block)) {
             getBlockHandler().removePlaced(block);
         } else if (getFarmer().isEnabled(material)) {
